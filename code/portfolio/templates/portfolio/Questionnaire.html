@@ -1,0 +1,122 @@
+{% extends 'Base.html' %} 
+
+{% block title %} Questionnaire {% endblock %} 
+
+{% block meta %}
+<meta property="og:title" content="Questionnaire">
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/portfolio/styles/questionnaire.css" media="screen" />
+{% endblock %} 
+
+{% block content %}
+<section class="u-clearfix u-section-1" id="sec-059d">
+  <div class="u-clearfix u-sheet u-sheet-1 animate__animated animate__fadeInUp">
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+              <div>
+                <form action="#" method="post">
+                  {% csrf_token %}
+                  {{form}}
+                  <button type="submit">送出</button>
+                </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script type="text/javascript" src="https://www.highcharts.com/samples/data/usdeur.js"></script>
+<script>
+
+  Highcharts.chart('results', {
+        chart: {
+          scrollablePlotArea: {
+            minWidth: 700
+          },
+          backgroundColor: '#fef9e6'
+        },
+        title: {
+          text: '投資組合最佳化模型之績效'
+        },
+        xAxis: {
+          tickInterval: 7 * 24 * 3600 * 1000, // one week
+          tickWidth: 0,
+          gridLineWidth: 1,
+          labels: {
+            align: 'left',
+            x: 3,
+            y: -3
+          }
+        },
+        yAxis: [{ // left y axis
+          title: {
+            text: null
+          },
+          labels: {
+            align: 'left',
+            x: 3,
+            y: 16,
+            format: '{value:.,0f}'
+          },
+          showFirstLabel: false
+        }, { // right y axis
+          linkedTo: 0,
+          gridLineWidth: 0,
+          opposite: true,
+          title: {
+            text: null
+          },
+          labels: {
+            align: 'right',
+            x: -3,
+            y: 16,
+            format: '{value:.,0f}'
+          },
+          showFirstLabel: false
+        }],
+  
+        legend: {
+          align: 'left',
+          verticalAlign: 'top',
+          borderWidth: 0,
+          backgroundColor: '#fef9e6'
+        },
+  
+        tooltip: {
+          shared: true,
+          crosshairs: true
+        },
+  
+        plotOptions: {
+          series: {
+            cursor: 'pointer',
+            className: 'popup-on-click',
+            marker: {
+              lineWidth: 1
+            }
+          }
+        },
+        series: [{
+          name: 'model1',
+          data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, 35.5, 29.2,
+            22.0, 17.8]
+        }, {
+          name: 'model2',
+          data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0, 6.5,
+            2.0, -0.9]
+        }]
+      });
+  
+  </script>
+{% endblock %}

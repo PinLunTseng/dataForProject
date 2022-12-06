@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %} About {% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="About">
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/portfolio/styles/diamond.css" media="screen">
+<link rel="stylesheet" href="/static/portfolio/styles/bubbles.css" media="screen">
+<link rel="stylesheet" href="/static/portfolio/styles/about.css" media="screen">
+{% endblock %}
+
+{% block content %}
+<div class="red-diamond"></div>
+<div class="yellow-diamond"></div>
+<div class="purple-cross"></div>
+<div class="purple-diamond"></div>
+<div class="pink-diamond"></div>
+<div class="bubbles col justify-center"></div>
+<div class="bubbles col justify-center"></div>
+<div class="bubbles col justify-center"></div>
+<section class="container u-section-1 u-clearfix">
+    <!-- hero image -->
+    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2  col justify-center animate__animated animate__fadeInLeft">
+        <img
+            class="u-image u-image-default u-image-2"
+            src="/static/portfolio/images/aboutus-thumb.png"
+            alt=""
+        />
+    </div>
+    <!-- hero end -->
+    <!-- expandable list -->
+    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2 animate__animated animate__fadeInRight">
+        <div class="u-container-layout u-valign-middle-xs u-container-layout-2 col justify-center ">
+            <nav class="second col justify-center">
+                <a data-id="1" class="row justify-between">
+                    智能撲滿的投資標的
+                    <button class="expand-btn center">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </a>
+                <div class="nav-tab">
+                    <article class="container-personial-text">
+                        <article class="container-text">
+                            <b>從美國S&P 500標準普爾指數中選取396家企業作為我們的投資標的。</b>
+                            <br>
+                            Q：為什麼是396家？<br>
+                            A：資料來源於yahoo finance從2006紀錄至2018年，我們採用的396企業則是在這段期間內保有完整資料的企業<br>
+                            Q：為什麼是運用以前的資料？會不會失去真實性？<br>
+                            A：長時間的資料增加我們參考價值，未來會定時更新投資標的數值。
+                        </article>
+                    </article>
+                </div>
+                <a data-id="2" class="row justify-between">
+                    聯絡我們
+                    <button class="expand-btn center">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </a>
+                <div class="nav-tab">
+                    <article class="container-personial-text">
+                        <article class="container-text">
+                            我們是來自國立臺北商業大學資訊管理系四年級的團隊<br>
+                            地址：100025台北市中正區濟南路一段321號<br>
+                            電話：(02)33222777
+                        </article>
+                    </article>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- expandable end -->
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="/static/portfolio/js/bubbles.js"></script>
+<script>
+    document.querySelectorAll('nav a')
+    .forEach(ele => ele.addEventListener('click', _ => change(ele.dataset.id)))
+
+
+    function change(n, e) {
+        let panel = document.querySelectorAll('.nav-tab')[n-1]
+        panel.classList.contains('active') ? 
+        panel.classList.remove('active'):
+        panel.classList.add('active')
+
+        let button = document.querySelectorAll('nav a button')[n-1]
+        button.classList.contains('active') ? 
+        button.classList.remove('active'):
+        button.classList.add('active')
+    }
+
+    // bubble init
+    let builder = new BubbleBuilder()
+    builder.createBubbles(3)
+</script>
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block title %} Calculation {% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="Calculation">
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/portfolio/styles/bubbles.css" media="screen">
+<link rel="stylesheet" href="/static/portfolio/styles/calculation.css" media="screen">
+{% endblock %}
+
+{% block content %}
+<div class="bubbles col justify-center"></div>
+<div class="bubbles col justify-center"></div>
+<div class="bubbles col justify-center"></div>
+<div class="bubbles col justify-center"></div>
+<section class="container u-align-center u-clearfix u-gradient u-section-1" id="carousel_d4d6">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1 u-expanded-width">快速試算</h2>
+        <div class="u-align-center u-container-style u-group u-radius-30 u-shape-round u-white u-group-1 animate__animated animate__fadeInUp">
+            <div class="u-container-layout u-container-layout-1">
+                <div class="u-form u-form-1">
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <tr>
+                            <h3><label>請選擇您所偏好之投資組合最佳化模型:</label></h3>
+                            <td>
+                                <!-- carousel -->
+                                <div class="row justify-around" id="id_model" style="text-align: center">
+                                    <button class="carousel-btn center" type="button">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </button>
+                                    <div>
+                                        均異模型
+                                    </div>
+                                    <div>
+                                        條件風險值模型
+                                    </div>
+                                    <div>
+                                        Omega比率模型
+                                    </div>
+                                    <button class="carousel-btn center" type="button">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <!-- carousel end -->
+
+                                <div id="content-wrapper">
+                                    <div class="btn-content">
+                                        <h3>Mean Variance Model</h3>
+                                        \begin{equation*} \mathop{\ Max}\; \sum_{i=1}^{n}r_{i}(w^{+}_{i}-w^{-}_{i}),
+                                        \end{equation*}
+                                        \begin{equation*} \mathop{\ Min}\;
+                                        \sum_{i=1}^{n}(w^{+}_{i}-w^{-}_{i})^{2}\sigma^{2}_{i}\;+\;\sum_{i=1}^{n}\sum_{j=1(j\neq
+                                        i)}^{n}\;\sigma_{ij}(w^{+}_{i}-w^{-}_{i})(w^{+}_{j}-w^{-}_{j}),
+                                        \end{equation*}
+                                        \begin{equation*} \mathop{\ Min}\;\sum_{i=1}^{n}w_{i}^{-}, \end{equation*}
+                                        \begin{equation*} \mathop{\ Min}\;\sum_{i=1}^{n}( p_{1}l^{+}_{i} +
+                                        p_{2}l^{−}_{i} + p_{3}s^{+}_{i} + p_{4}s^{−}_{i} ), \end{equation*}
+                                        \begin{equation*} \textbf{s.t.}\;\sum_{i=1}^{n}(w^{+}_{i} + kw^{−}_{i} +
+                                        p_{1}l^{+}_{i} + p_{2}l^{−}_{i} + p_{3}s^{+}_{i} + p_{4}s^{−}_{i} ) = 1,
+                                        \end{equation*}
+                                        \begin{equation*} w^{+}_{i} = w^{+}_{i,0} + l^{+}_{i} − l^{−}_{i} ,
+                                        \end{equation*}
+                                        \begin{equation*} w^{−}_{i} = w^{−}_{i,0} + s^{+}_{i} − s^{−}_{i} ,
+                                        \end{equation*}
+                                        \begin{equation*} 0.05u_{i}\leqslant w^{+}_{i} \leqslant 0.2u_{i},
+                                        \end{equation*}
+                                        \begin{equation*} 0.05v_{i} \leqslant w^{−} _{i} \leqslant 0.2v_{i},
+                                        \end{equation*}
+                                        \begin{equation*} u_{i} + v_{i} = y_{i}, \end{equation*}
+                                        \begin{equation*} i=1,2\;...,n. \end{equation*}
+                                        <li>
+                                            目標式（1）為最大化投資組合報酬；限制式（2）最小化投資組合風險；限制式（3）為最小化賣空；限制式（4）最小化投資組合交易成本；限制式（5）為投資組合再調整中，投交易成本與資標的權重總和需等於1；限制式（6）與（7）為投資組合再調整後，投資標的權重的定義；限制式（8）與（9）為權重上下邊界，避免投資比例太低進而降低管理投資組合效率；限制式（10）為使用來強制第
+                                            j 個標的只能買入或買空。
+                                        </li>
+                                    </div>
+                                    <div class="btn-content" style="display:none;">
+                                        <h3>Conditional Value at Risk Model</h3>
+                                        \begin{equation*} \mathop{\ Min}\; \theta\; +\sum_{j=1}^{n}\mathrm{w}_{j}^{-} +
+                                        \sum_{j=1}^{n}(p_{1}l_{j}^{+}+p_{2}l_{j}^{-}+p_{3}s_{j}^{+}+p_{4}s_{j}^{-})
+                                        \end{equation*}
+                                        \begin{equation*} \textbf{s.t.}\;\xi\;+\;\frac{1}{1-\alpha
+                                        }\frac{1}{T^{i}}\sum_{t=1}^{T}\eta^{i}_{t}\;\leqslant\;\theta,\;i=1, 2,\; . . .,
+                                        l, \end{equation*}
+                                        \begin{equation*} η^{i}_{t} \geqslant -\left(
+                                        \sum_{j=1}^{n}{r}^{i}_{jt}(w^{+}_{j} − w^{−}_{j} ) \right)-\xi,\; t = 1, 2,\; .
+                                        . ., T^{i}, i = 1, 2,\; . . ., l, \end{equation*}
+                                        \begin{equation*} η^{i}_{t} \geqslant 0,t = 1, 2,\; . . ., T^{i}, i = 1, 2,\; .
+                                        . ., l, \end{equation*}
+                                        \begin{equation*} \sum_{j=1}^{n}\overline{r}^{i}_{j}(w^{+}_{j} − w^{−}_{j} )
+                                        \geqslant E,\; i = 1, 2, \; . . ., l, \end{equation*}
+                                        \begin{equation*} \sum_{j=1}^{n}(w^{+}_{j} + kw^{−}_{j} + p_{1}l^{+}_{j} +
+                                        p_{2}l^{−}_{j} + p_{3}s^{+}_{j} + p_{4}s^{−}_{j} ) = 1, \end{equation*}
+                                        \begin{equation*} w^{+}_{j} = w^{+}_{j,0} + l^{+}_{j} − l^{−}_{j} , j = 1, 2,\;
+                                        . . ., n, \end{equation*}
+                                        \begin{equation*} w^{−}_{j} = w^{−}_{j,0} + s^{+}_{j} − s^{−}_{j} , j = 1, 2,\;
+                                        . . ., n, \end{equation*}
+                                        \begin{equation*} 0.01u_{j} \leqslant w^{+}_{j} \leqslant u_{j}, \;j = 1, 2,\; .
+                                        . ., n, \end{equation*}
+                                        \begin{equation*} 0.01v_{j} \leqslant w^{−} _{j} \leqslant v_{j}, \;j = 1, 2,
+                                        \;. . ., n, \end{equation*}
+                                        \begin{equation*} u_{j} + v_{j} \leqslant 1,\;j = 1, 2, \;. . ., n,
+                                        \end{equation*}
+                                        \begin{equation*} u_{j},v_{j} ∈ {\left\{ 0,1 \right\}}, j = 1, 2,\; . . ., n,
+                                        \end{equation*}
+                                        <li>
+                                            目標式（1）為最小化條件風險值、最小化投資組合賣空權重與最小化投資組合交易成本；限制式（2）為衡量最差情況下的條件風險值；限制式（3）為衡量投資組合在所有可能的情況下，大於門檻值的風險；限制式（4）為大於門檻值的風險需大於0；限制式（5）為投資組合期望報酬率大於需求報酬率；限制式（6）為投資組合再調整中，投交易成本與資標的權重總和需等於1；限制式（7）與（8）為投資組合再調整後，投資標的權重的定義；限制式（9）與（10）為權重上下邊界，避免投資比例太低進而降低管理投資組合效率；限制式（11）為強制第
+                                            j
+                                            個標的只能買入或買空；限制式（12）為二元變數，為1代表有投資買入第j個標的，若為0則代表沒有投資買入第j個標的；為1代表有投資賣空第j個標的，若為0則代表沒有投資賣空第j個標的。
+                                        </li>
+                                    </div>
+                                    <div class="btn-content" style="display:none;">
+                                        <h3>Omega ratio Model</h3>
+                                        \begin{equation*} \mathop{\ Max}\;\psi\;-\sum_{j=1}^{n}w^{-}_{j}-\sum_{j=1}^{n}(
+                                        p_{1}l^{+}_{j} + p_{2}l^{−}_{j} + p_{3}s^{+}_{j} + p_{4}s^{−}_{j} )
+                                        \end{equation*}
+                                        \begin{equation*} \textbf{s.t.} \;δ\left( \sum_{j=1}^{n} (w^{+}_{j} − w^{−}_{j}
+                                        ) \overline{r}^{i}_{j} -τ\right)-(1 −
+                                        δ)\frac{1}{T^{i}}\sum_{t=1}^{T^{i}}η^{i}_{t}\geqslant ψ, \end{equation*}
+                                        \begin{equation*} η^{i}_{t} \geqslant -
+                                        \sum_{j=1}^{n}{\overline{r}}^{i}_{j}(w^{+}_{j} − w^{−}_{j} )+\tau,
+                                        \end{equation*}
+                                        \begin{equation*} η^{i}_{t} \geqslant 0,t = 1, 2,\; . . ., T^{i}, i = 1, 2,\; .
+                                        . ., l, \end{equation*}
+                                        \begin{equation*} \sum_{j=1}^{n}\overline{r}^{i}_{j}(w^{+}_{j} − w^{−}_{j} )
+                                        \geqslant E,\; i = 1, 2, \; . . ., l, \end{equation*}
+                                        \begin{equation*} \sum_{j=1}^{n}(w^{+}_{j} + kw^{−}_{j} + p_{1}l^{+}_{j} +
+                                        p_{2}l^{−}_{j} + p_{3}s^{+}_{j} + p_{4}s^{−}_{j} ) = 1, \end{equation*}
+                                        \begin{equation*} w^{+}_{j} = w^{+}_{j,0} + l^{+}_{j} − l^{−}_{j} , j = 1, 2,\;
+                                        . . ., n, \end{equation*}
+                                        \begin{equation*} w^{−}_{j} = w^{−}_{j,0} + s^{+}_{j} − s^{−}_{j} , j = 1, 2,\;
+                                        . . ., n, \end{equation*}
+                                        \begin{equation*} 0.01u_{j} \leqslant w^{+}_{j} \leqslant u_{j}, \;j = 1, 2,\; .
+                                        . ., n, \end{equation*}
+                                        \begin{equation*} 0.01v_{j} \leqslant w^{−} _{j} \leqslant v_{j}, \;j = 1, 2,
+                                        \;. . ., n, \end{equation*}
+                                        \begin{equation*} u_{j} + v_{j} \leqslant 1,\;j = 1, 2, \;. . ., n,
+                                        \end{equation*}
+                                        \begin{equation*} u_{j},v_{j} ∈ {\left\{ 0,1 \right\}}, j = 1, 2,\; . . ., n,
+                                        \end{equation*}
+                                        \begin{equation*} t=1,2\;...,T^i, \end{equation*}
+                                        \begin{equation*} i=1,2\;...,l, \end{equation*}
+                                        \begin{equation*} j=1,2\;...,n. \end{equation*}
+                                        <li>
+                                            目標式（1）為最大化報酬與風險之比率、最小化投資組合賣空權重與最小化投資組合交易成本；限制式（2）在第一部分，投資組合報酬大於門檻值，故劃分為獲利；小於門檻值則劃分為損失。若為1，最大化投資組合收益為主要問題；若為0則代表最小化投資組合風險；限制式（3）為可能性分佈下，大於門檻之投資組合的風險；限制式（4）為大於門檻值的風險需大於0；限制式（5）為投資組合期望報酬率大於需求報酬率；限制式（6）為投資組合再調整中，投交易成本與資標的權重總和需等於1；限制式（7）與（8）為投資組合再調整後，投資標的權重的定義；限制式（9）與（10）為權重上下邊界，避免投資比例太低進而降低管理投資組合效率；限制式（11）為強制第
+                                            j
+                                            個標的只能買入或買空；限制式（12）為二元變數，為1代表有投資買入第j個標的，若為0則代表沒有投資買入第j個標的；為1代表有投資賣空第j個標的，若為0則代表沒有投資賣空第j個標的。
+                                        </li>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <input type="hidden" name="model" required id="id_model" value="1">
+                        <tr>
+                            <th>
+                                <label for="id_amount">請輸入您想投資的金額:</label>
+                            </th>
+                            <td>
+                                <input type="number" name="amount" min="0.0" step="any" required id="id_amount">
+                            </td>
+                        </tr>
+                        </br>
+                        <div class="row justify-center">
+                            <button type="submit">送出</button>
+                        </div>
+                    </form>
+                    {{s}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<!--embedded LaTeX-->
+<script 
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+    type="text/javascript"
+></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript">
+    function hideLayer(id) {
+        var e = document.getElementById(id);
+        if(e.style.display == 'block')
+        e.style.display = 'none';
+    }
+</script>
+<script type="text/javascript">
+    function showLayer(id) {
+        var e = document.getElementById(id);
+        if(e.style.display == 'none')
+        e.style.display = 'block';
+    }
+
+</script>
+<script src="/static/portfolio/js/bubbles.js"></script>
+<script src="/static/portfolio/js/calculation.js"></script>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %} SignUp {% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="SignUp">
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/portfolio/styles/sign-up.css" media="screen">
+<link rel="stylesheet" href="/static/portfolio/styles/diamond.css" media="screen">
+{% endblock %}
+
+{% block content %}
+<div class="red-diamond"></div>
+<div class="yellow-diamond"></div>
+<section class="u-clearfix u-section-1" id="carousel_2fdb">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+                <div class="u-layout-row">
+                    <!-- thumb -->
+                    <div
+                        id="thumb" 
+                        class="u-align-center u-container-style u-image u-layout-cell u-shading u-size-30 u-image-1"
+                        data-image-width="632" 
+                        data-image-height="395">
+                        <div class="pink-diamond"></div>
+                        <div class="u-container-layout u-container-layout-1 animate__animated animate__fadeInLeft">
+                            <h1 class="u-text u-text-default u-text-1 u-text-black">註冊</h1>
+                        </div>
+                    </div>
+                    <!-- thumb end -->
+
+                    <!-- form -->
+                    <div 
+                        id="form"
+                        class="u-white u-align-center u-container-style u-layout-cell u-size-30 u-layout-cell-2 animate__animated animate__fadeInRight"
+                    >
+                        <div class="purple-cross"></div>
+                        <div class="purple-diamond"></div>
+                        <div class="u-container-layout u-container-layout-2 col justify-center">
+                            <div class="u-align-left u-form u-form-1">
+                                <form action="/portfolio/signUp/" , method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <label for="username">用戶名稱:</label>
+                                        <input type="text" name="username" value="" id="username">
+                                    </div>
+                                    <div class="row">
+                                        <label for="password">用戶密碼:</label>
+                                        <input type="password" name="password" value="" id="password">
+                                    </div>
+                                    <div class="row">
+                                        <label for="password">用戶mail:</label>
+                                        <input type="email" name="email" value="" id="email">
+                                    </div>
+                                    {{error_message}}
+                                    <div class="row justify-center">
+                                        <button type="submit">註冊</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- form end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

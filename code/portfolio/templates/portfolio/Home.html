@@ -1,0 +1,242 @@
+{% extends 'Base.html' %}
+
+{% block title %} Home {% endblock %} 
+
+{% block meta %}
+<meta property="og:title" content="Home">
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/portfolio/styles/home.css" media="screen" />
+<link rel="stylesheet" href="/static/portfolio/styles/diamond.css" media="screen">
+{% endblock %} 
+
+{% block content %}
+<section class="u-clearfix u-section-1" id="sec-c439">
+  <div class="red-diamond"></div>
+  <div class="yellow-diamond"></div>
+  <div class="purple-cross"></div>
+  <div class="purple-diamond"></div>
+  <div class="pink-diamond"></div>
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+      <div class="u-layout">
+        <div class="u-layout-row">
+          <div
+            id="home-hero"
+            class="u-container-style u-image u-layout-cell u-size-30 u-image-1 animate__animated animate__fadeInLeft"
+            data-image-width="1284"
+            data-image-height="576"
+          >
+            <div class="u-container-layout u-container-layout-1"></div>
+          </div>
+          <div
+            class="u-container-style u-layout-cell u-size-30 u-layout-cell-2"
+          >
+            <div
+              class="u-container-layout u-valign-middle-xs u-container-layout-2"
+            >
+              <img
+                class="u-image u-image-default u-image-2 animate__animated animate__fadeInUp"
+                src="/static/portfolio/images/5082d6d5-6145-d7f3-0583-9b9704a0a7f7.png"
+                alt=""
+                data-image-width="922"
+                data-image-height="337"
+              />
+              <!--<h3 class="u-text u-text-default u-text-1">即刻加入智能撲滿<br>-->
+              <!--<br>無上限試算最適合你的投資組合-->
+              <!--</h3>-->
+            </div>
+          </div>
+        </div>
+        <!-- <div class="u-layout-row animate__animated animate__fadeInUp">
+          <div
+            class="u-container-style u-image u-layout-cell u-size-30 u-image-1 reflection"
+            data-image-width="1284"
+            data-image-height="576"
+          >
+            <div class="u-container-layout u-container-layout-1"></div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+<section class="u-clearfix u-palette-3-light-3 u-section-2" id="sec-f06c">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+      <div class="u-layout">
+        <div class="u-layout-row">
+          <div
+            class="u-align-center u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1"
+          >
+            <div class="u-container-layout u-container-layout-1">
+              <div id="ChartsDiv">
+                <figure class="highcharts-figure">
+                  <article id="results"></article>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div
+            class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2"
+          >
+            <div class="u-container-layout u-container-layout-2">
+              <h3 class="u-text u-text-1">
+                客製化的投資組合<br />
+                <br />更貼合你的風險評價<br />
+                <br />一同攜手打造財富自由
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script
+  type="text/javascript"
+  src="https://www.highcharts.com/samples/data/usdeur.js"
+></script>
+<script>
+
+  Highcharts.chart('results', {
+      chart: {
+          scrollablePlotArea: {
+          minWidth: 700
+          },
+          backgroundColor: '#fef9e6'
+      },
+      title: {
+          text: '投資組合最佳化模型之績效'
+      },
+      xAxis: {
+          tickInterval: 7 * 24 * 3600 * 1000, // one week
+          tickWidth: 0,
+          gridLineWidth: 1,
+          labels: {
+          align: 'left',
+          x: 3,
+          y: -3
+          }
+      },
+      yAxis: [{ // left y axis
+          title: {
+          text: null
+          },
+          labels: {
+          align: 'left',
+          x: 3,
+          y: 16,
+          format: '{value:.,0f}'
+          },
+          showFirstLabel: false
+      }, { // right y axis
+          linkedTo: 0,
+          gridLineWidth: 0,
+          opposite: true,
+          title: {
+          text: null
+          },
+          labels: {
+          align: 'right',
+          x: -3,
+          y: 16,
+          format: '{value:.,0f}'
+          },
+          showFirstLabel: false
+      }],
+
+      legend: {
+          align: 'left',
+          verticalAlign: 'top',
+          borderWidth: 0,
+          backgroundColor: '#fef9e6'
+      },
+
+      tooltip: {
+          shared: true,
+          crosshairs: true
+      },
+
+      plotOptions: {
+          series: {
+          cursor: 'pointer',
+          className: 'popup-on-click',
+          marker: {
+              lineWidth: 1
+          }
+          }
+      },
+      series: [{
+          name: 'Provided Portfolio',
+          data: [
+              {% for i in port01 %}
+                  {{i}},
+              {% endfor %}
+          ]
+      }, {
+          name: 'Comparison Portfolio',
+          data: [
+              {% for i in port02 %}
+                  {{i}},
+              {% endfor %}
+          ]
+      }]
+      });
+</script>
+
+<script>
+function scrollTrigger(selector, options = {}){
+    let els = document.querySelectorAll(selector)
+    els = Array.from(els)
+    els.forEach(el => {
+        addObserver(el, options)
+    })
+}
+
+function addObserver(el, options){
+    if(!('IntersectionObserver' in window)){
+        if(options.cb){
+            options.cb(el)
+        }else{
+            entry.target.classList.add('active')
+        }
+        return
+    }
+    let observer = new IntersectionObserver((entries, observer) => { //this takes a callback function which receives two arguments: the elemts list and the observer instance
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                if(options.cb){
+                    options.cb(el)
+                }else{
+                    entry.target.classList.add('active')
+                }
+                observer.unobserve(entry.target)
+            }
+        })
+    }, options)
+    observer.observe(el)
+}
+
+scrollTrigger('.u-section-2', {cb: () => {
+  let row = document.querySelector(".u-section-2 .u-layout-row")
+  row.style.opacity = 1
+
+  row.querySelector(".u-layout-cell-1").classList.add("animate__animated")
+  row.querySelector(".u-layout-cell-1").classList.add("animate__fadeInLeft")
+  row.querySelector(".u-layout-cell-2").classList.add("animate__animated")
+  row.querySelector(".u-layout-cell-2").classList.add("animate__fadeInUp")
+}})
+</script>
+{% endblock %}
