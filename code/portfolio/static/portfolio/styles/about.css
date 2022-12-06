@@ -1,0 +1,142 @@
+.u-section-1 {
+  min-height: 70vh;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 10px;
+}
+
+.u-section-1 .u-text-1 {
+  margin: 100px 0 0;
+}
+
+.u-section-1 .u-image {
+  height: 50vh;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 10px;
+}
+
+.u-section-1 .u-text-2 {
+  margin: 100px 0 0;
+}
+
+.second {
+  cursor: pointer;
+  width: 40vw !important;
+  height: 100%;
+  margin: 0 0 0 5vw;
+}
+
+.second a {
+  padding: 20px;
+  font-weight: bold;
+  border: 1px gray solid;
+  border-radius: 20px;
+  margin: 20px 0 0 0;
+  z-index: 1000;
+}
+
+.nav-tab {
+  opacity: 0;
+  height: 0;
+  transition: height 1s ease;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.nav-tab::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tab.active {
+  padding: 10px;
+  opacity: 1;
+  height: 200px;
+}
+
+.container-text {
+  margin: 0 5px 0px 5px;
+}
+
+.container-personial-text {
+  line-height: 40px;
+  letter-spacing: 2.5px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-list-1 {
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(2, calc(50% - 5px));
+    min-height: 309px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-repeater-1 {
+    grid-auto-columns: calc(100% - 0px);
+    grid-template-columns: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-repeater-1 {
+    grid-auto-columns: 100%;
+  }
+}
+
+.expand-btn {
+  background-color: rgb(68, 37, 241);
+  border: 0;
+  border-radius: 30px;
+  color: white;
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
+}
+
+.expand-btn.active {
+  transform: rotate(180deg);
+}
+
+.yellow-diamond {
+  position: absolute;
+  top: 40vh;
+  left: 45vw;
+}
+
+.red-diamond {
+  position: absolute;
+  top: 35vh;
+  right: 5vw;
+}
+
+.purple-cross {
+  position: absolute;
+  bottom: 30vh;
+  right: 20vw;
+}
+
+.pink-diamond {
+  position: absolute;
+  bottom: 30vh;
+  left: 10vw;
+}
+
+.purple-diamond {
+  position: absolute;
+  top: 20vh;
+  left: 35vw;
+}
+
+footer {
+  bottom: -7em;
+}

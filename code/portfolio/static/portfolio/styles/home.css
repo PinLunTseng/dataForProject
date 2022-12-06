@@ -1,0 +1,278 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 700px;
+}
+
+.u-section-1 .u-layout-wrap-1 {
+  margin: 150px 0 60px;
+}
+
+#home-hero {
+  min-height: 400px;
+  background-image: url("/static/portfolio/images/home-hero.jpg");
+  background-position: 50% 50%;
+}
+
+#home-hero::after{
+  width: 100%;
+  min-height: 400px;
+  bottom: -15em;
+  background-image: url(/static/portfolio/images/home-hero-reflection.jpg);
+  background-position: 45% 53%;
+  background-size: 107%;
+  background-repeat: no-repeat;
+  content: "";
+  transform: rotate(180deg) scaleX(-1) !important;
+  position: absolute;
+  opacity: 0.5 !important;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 0;
+}
+
+.u-section-1 .u-layout-cell-2 {
+  min-height: 400px;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 30px;
+}
+
+.u-section-1 .u-image-2 {
+  width: 380px;
+  height: 139px;
+  box-shadow: 2px 0 0 0 rgba(0,0,0,0);
+  margin: 38px auto 0 47px;
+}
+
+.u-section-1 .u-text-1 {
+  margin: 30px auto 0 53px;
+}
+
+#ChartsDiv {
+  width: 550px;
+  height: auto;
+  float: right;
+  display: inline;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 547px;
+  }
+
+  .u-section-1 .u-layout-wrap-1 {
+    position: relative;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 330px;
+  }
+
+  .u-section-1 .u-layout-cell-2 {
+    min-height: 330px;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 470px;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 253px;
+  }
+
+  .u-section-1 .u-layout-cell-2 {
+    min-height: 100px;
+  }
+
+  .u-section-1 .u-image-2 {
+    width: 300px;
+    height: 110px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1113px;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 300px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: 91px;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 540px;
+  }
+
+  .u-section-1 .u-layout-wrap-1 {
+    position: relative;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-image-1 {
+    min-height: 189px;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: 0;
+  }
+} .u-section-2 {
+  background-image: none;
+}
+
+.u-section-2 .u-sheet-1 {
+  min-height: 349px;
+}
+
+.u-section-2 .u-layout-wrap-1 {
+  width: 1042px;
+  margin: 60px auto;
+}
+
+.u-section-2 .u-layout-cell-1 {
+  min-height: 420px;
+}
+
+.u-section-2 .u-container-layout-1 {
+  padding: 30px;
+}
+
+.u-section-2 .u-layout-cell-2 {
+  min-height: 420px;
+}
+
+.u-section-2 .u-container-layout-2 {
+  padding: 30px 20px;
+}
+
+.u-section-2 .u-text-1 {
+  margin: 107px 10px 0 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 308px;
+  }
+
+  .u-section-2 .u-layout-wrap-1 {
+    width: 940px;
+  }
+
+  .u-section-2 .u-layout-cell-1 {
+    min-height: 379px;
+  }
+
+  .u-section-2 .u-layout-cell-2 {
+    min-height: 379px;
+  }
+
+  .u-section-2 .u-text-1 {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 29px;
+  }
+
+  .u-section-2 .u-layout-wrap-1 {
+    width: 720px;
+  }
+
+  .u-section-2 .u-layout-cell-1 {
+    min-height: 100px;
+  }
+
+  .u-section-2 .u-layout-cell-2 {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 129px;
+  }
+
+  .u-section-2 .u-layout-wrap-1 {
+    width: 540px;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-2 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-2 .u-layout-wrap-1 {
+    width: 340px;
+  }
+}
+
+.u-section-1{
+  background: url("/static/portfolio/images/home-background.png");
+  background-repeat: no-repeat;
+  background-position: bottom 0 left 0;
+}
+
+.u-section-2 .u-layout-row{
+  opacity: 0;
+}
+
+.yellow-diamond{
+  position: absolute;
+  top: 10vh;
+  right: 45vw;
+}
+
+.red-diamond{
+  position: absolute;
+  top: 15vh;
+  right: 15vw;
+}
+
+.purple-cross{
+  position: absolute;
+  bottom: 15vh;
+  right: 40vw;
+}
+
+.pink-diamond{
+  position: absolute;
+  bottom: 30vh;
+  left: 10vw;
+}
+
+.purple-diamond{
+  position: absolute;
+  top: 40vh;
+  right: 10vw;
+}

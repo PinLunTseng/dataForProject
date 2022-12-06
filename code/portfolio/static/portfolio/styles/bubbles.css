@@ -1,0 +1,10 @@
+.bubbles{
+    position: fixed;
+    width: 30vw;
+    height: 100vh;
+}
+
+.bubble{
+    position: absolute;
+    border-radius: 50%;
+}

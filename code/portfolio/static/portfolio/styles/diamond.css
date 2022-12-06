@@ -1,0 +1,40 @@
+
+.yellow-diamond{
+    width: 20px;
+    height: 20px;
+    background-image: url("/static/portfolio/images/yellow-diamond.png");
+    background-repeat: no-repeat;
+    animation: diamond-rotate 2s infinite linear;
+}
+
+.red-diamond{
+    width: 20px;
+    height: 20px;
+    background-image: url("/static/portfolio/images/red-diamond.png");
+    background-repeat: no-repeat;
+    animation: diamond-rotate 2s infinite linear;
+}
+
+.purple-cross{
+    width: 20px;
+    height: 20px;
+    background-image: url("/static/portfolio/images/purple-cross.png");
+    background-repeat: no-repeat;
+    animation: diamond-rotate 2s infinite linear;
+}
+
+.pink-diamond{
+    width: 20px;
+    height: 20px;
+    background-image: url("/static/portfolio/images/pink-diamond.png");
+    background-repeat: no-repeat;
+    animation: diamond-rotate 2s infinite linear;
+}
+
+.purple-diamond{
+    width: 20px;
+    height: 20px;
+    background-image: url("/static/portfolio/images/purple-diamond.png");
+    background-repeat: no-repeat;
+    animation: diamond-rotate 2s infinite linear;
+}

@@ -1,0 +1,45 @@
+body{
+    background: rgb(250,248,237) !important;
+}
+
+.u-section-1{
+    width: 50vw;
+    margin: 5vh 25vw;
+}
+
+form{
+    padding: 3vh 5vw;
+}
+
+#id_model{
+    font-size: 30px;
+    margin: 10vh 0;
+}
+
+#id_model > div{
+    display: none;
+}
+
+.carousel-btn{
+    background-color: lightgray;
+    border: 0;
+    border-radius: 50px;
+    color: white;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+}
+
+.carousel-btn:active{
+    background-color: black;
+    color: white;
+}
+
+#content-wrapper > div{
+    display: none;
+}
+
+
+footer{
+    bottom: -10em;
+  }

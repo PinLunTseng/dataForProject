@@ -1,0 +1,14 @@
+body{
+  background-image: url("/static/portfolio/images/questionnaire-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.u-section-1{
+  margin: 5vh 25vw;
+}
+
+
+footer{
+  bottom: -10em;
+}
